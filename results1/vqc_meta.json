@@ -1,7 +1,0 @@
-{
-  "model": "VQC_reuploading+BasicEntangler",
-  "layers": 2,
-  "n_wires": 6,
-  "device": "default.qubit(analytic)",
-  "pca_components": 6
-}
