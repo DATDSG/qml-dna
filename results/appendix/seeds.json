@@ -1,0 +1,8 @@
+{
+  "split_train_test": 42,
+  "split_train_val": 43,
+  "pca_kernels": 7,
+  "pca_vqc": 11,
+  "noise_sweeps": 17,
+  "analysis": 23
+}

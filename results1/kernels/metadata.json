@@ -1,0 +1,8 @@
+{
+  "kernel": "quantum_precomputed",
+  "feature_map": "AngleEmbedding(Y)+CZ-ring",
+  "pca_components": 8,
+  "n_wires": 8,
+  "device": "default.qubit(analytic)",
+  "train_size_used": 894
+}

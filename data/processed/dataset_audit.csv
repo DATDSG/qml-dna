@@ -1,0 +1,2 @@
+n_samples,positives,negatives,window,stride,splits
+1490,1375,115,256,128,"{'train': 894, 'val': 298, 'test': 298}"

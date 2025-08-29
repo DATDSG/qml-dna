@@ -1,0 +1,43 @@
+{
+  "config": {
+    "D": 6,
+    "MAX_TR": 160,
+    "M_ANCHORS": 96,
+    "sweep_size": 2,
+    "shots_grid": [
+      256
+    ],
+    "pflip_grid": [
+      0.0,
+      0.01
+    ],
+    "pdepol_grid": [
+      0.0
+    ]
+  },
+  "timing": {
+    "VQC": {
+      "VQC_forward_256_0.0_0.0": 2.9952850000117905,
+      "VQC_metrics_256_0.0_0.0": 0.010200800010352395,
+      "VQC_forward_256_0.01_0.0": 41.186155000003055,
+      "VQC_metrics_256_0.01_0.0": 0.007741199995507486,
+      "VQC_sweep_total_2": 44.199426599996514
+    },
+    "QSVM": {
+      "pure_states_and_gram": 0.9177652000071248,
+      "pure_normalize": 0.00023999999393709004,
+      "pure_svc_fit": 0.0025973000010708347,
+      "pure_eval_train": 0.002396100011537783,
+      "pure_eval_val": 0.002544400005717762,
+      "pure_eval_test": 0.002232599988928996,
+      "noisy_blocks_states": 30.28329279999889,
+      "noisy_normalize": 0.00028950000705663115,
+      "noisy_features": 0.003495999990263954,
+      "noisy_linear_svc_fit": 0.0025178000068990514,
+      "noisy_eval_train": 0.002491200008080341,
+      "noisy_eval_val": 0.0027649000112432986,
+      "noisy_eval_test": 0.0025442999904043972,
+      "QSVM_sweep_total_2": 31.254296300001442
+    }
+  }
+}

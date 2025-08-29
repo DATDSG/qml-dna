@@ -1,0 +1,106 @@
+<h1>DNA QML — Results Report</h1>
+<p><b>Environment:</b> Python 3.10.13 on Windows 10</p>
+<h2>Test Metrics Summary</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>acc</th>
+      <th>prec</th>
+      <th>rec</th>
+      <th>f1</th>
+      <th>auc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>QSVM_kernel</td>
+      <td>0.923</td>
+      <td>0.923</td>
+      <td>1.000</td>
+      <td>0.960</td>
+      <td>0.788</td>
+    </tr>
+    <tr>
+      <td>VQC</td>
+      <td>0.923</td>
+      <td>0.923</td>
+      <td>1.000</td>
+      <td>0.960</td>
+      <td>0.511</td>
+    </tr>
+    <tr>
+      <td>SVM_onehot</td>
+      <td>0.923</td>
+      <td>0.923</td>
+      <td>1.000</td>
+      <td>0.960</td>
+      <td>0.756</td>
+    </tr>
+    <tr>
+      <td>SVM_kmer</td>
+      <td>0.919</td>
+      <td>0.923</td>
+      <td>0.996</td>
+      <td>0.958</td>
+      <td>0.774</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Timing (from noise_sweep_run_report.json)</h2>
+<pre style='white-space:pre-wrap;font-size:12px;'>{
+  "config": {
+    "D": 6,
+    "MAX_TR": 160,
+    "M_ANCHORS": 96,
+    "sweep_size": 2,
+    "shots_grid": [
+      256
+    ],
+    "pflip_grid": [
+      0.0,
+      0.01
+    ],
+    "pdepol_grid": [
+      0.0
+    ]
+  },
+  "timing": {
+    "VQC": {
+      "VQC_forward_256_0.0_0.0": 2.9952850000117905,
+      "VQC_metrics_256_0.0_0.0": 0.010200800010352395,
+      "VQC_forward_256_0.01_0.0": 41.186155000003055,
+      "VQC_metrics_256_0.01_0.0": 0.007741199995507486,
+      "VQC_sweep_total_2": 44.199426599996514
+    },
+    "QSVM": {
+      "pure_states_and_gram": 0.9177652000071248,
+      "pure_normalize": 0.00023999999393709004,
+      "pure_svc_fit": 0.0025973000010708347,
+      "pure_eval_train": 0.002396100011537783,
+      "pure_eval_val": 0.002544400005717762,
+      "pure_eval_test": 0.002232599988928996,
+      "noisy_blocks_states": 30.28329279999889,
+      "noisy_normalize": 0.00028950000705663115,
+      "noisy_features": 0.003495999990263954,
+      "noisy_linear_svc_fit": 0.0025178000068990514,
+      "noisy_eval_train": 0.002491200008080341,
+      "noisy_eval_val": 0.0027649000112432986,
+      "noisy_eval_test": 0.0025442999904043972,
+      "QSVM_sweep_total_2": 31.254296300001442
+    }
+  }
+}</pre>
+<h2>ROC Curves (test)</h2>
+<div style='margin:10px 0'><img src='results/figures/roc_test.png' width='640' alt='ROC curve (test set)'></div>
+<h2>Test F1 by Model</h2>
+<div style='margin:10px 0'><img src='results/figures/bar_f1_test.png' width='640' alt='Test F1 by Model'></div>
+<h2>Confusion Matrices (test)</h2>
+<h4>qsvm_kernel</h4>
+<div style='margin:10px 0'><img src='results/figures/cm_qsvm_kernel.png' width='420' alt='Confusion matrix for QSVM kernel model (test set)'></div>
+<h4>svm_kmer</h4>
+<div style='margin:10px 0'><img src='results/figures/cm_svm_kmer.png' width='420' alt='Confusion matrix for SVM k-mer model (test set)'></div>
+<h4>svm_onehot</h4>
+<div style='margin:10px 0'><img src='results/figures/cm_svm_onehot.png' width='420' alt='Confusion matrix for SVM one-hot model (test set)'></div>
+<h4>vqc</h4>
+<div style='margin:10px 0'><img src='results/figures/cm_vqc.png' width='420' alt='Confusion matrix for VQC model (test set)'></div>
