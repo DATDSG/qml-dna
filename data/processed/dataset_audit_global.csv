@@ -1,0 +1,2 @@
+n_samples,positives,negatives,window,stride,kmer_k,n_datasets
+20560,17793,2767,256,128,3,13

@@ -1,2 +1,14 @@
-n_samples,positives,negatives,window,stride,splits
-1490,1375,115,256,128,"{'train': 894, 'val': 298, 'test': 298}"
+accession,n_windows,positives,negatives,pos_ratio,notes
+KF986530.1,1490,1375,115,0.922819,severe_imbalance
+KY923074,1485,1370,115,0.922559,severe_imbalance
+MF401522,1494,1377,117,0.921687,severe_imbalance
+MG724915.1,1483,1366,117,0.921106,severe_imbalance
+MG813875,1486,1369,117,0.921265,severe_imbalance
+MH330687,1496,1379,117,0.921791,severe_imbalance
+MH348156,1453,1336,117,0.919477,severe_imbalance
+MK058684,1491,1374,117,0.921529,severe_imbalance
+MT460410,2746,1377,1369,0.501457,
+NC_023792,1490,1375,115,0.922819,severe_imbalance
+OK037100,1486,1369,117,0.921265,severe_imbalance
+OK037101,1479,1362,117,0.920892,severe_imbalance
+OK037102,1481,1364,117,0.920999,severe_imbalance
