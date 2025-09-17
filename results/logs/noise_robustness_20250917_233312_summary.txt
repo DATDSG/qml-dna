@@ -1,0 +1,5 @@
+Issues observed:
+- [align] pure_256_0p0_0p0:val y length 4112 > kernel rows 298; slicing to head 298.
+- [align] pure_256_0p0_0p0:test y length 4112 > kernel rows 298; slicing to head 298.
+- [plot] ROC skipped qsvm_pure_256_0p0_0p0: Found input variables with inconsistent numbers of samples: [4112, 298]
+- [plot] PR skipped qsvm_pure_256_0p0_0p0: Found input variables with inconsistent numbers of samples: [4112, 298]
