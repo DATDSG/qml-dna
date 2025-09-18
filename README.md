@@ -1,74 +1,163 @@
 # qml-dna
 
-Hybrid quantum-classical DNA classification pipeline that contrasts strong classical SVM baselines with quantum kernel and variational circuits. Every stage is notebook-driven and writes artefacts (metrics, figures, cached kernels, provenance logs) to `results/` for reproducible downstream analysis.
+Hybrid quantum-classical pipeline for supervised DNA sequence classification. The project combines reproducible feature engineering, strong classical baselines, and experimental quantum machine learning (QML) models to benchmark how quantum circuits compare to optimised support vector machines on genomics tasks.
 
-## Highlights
-- End-to-end workflow from raw GenBank parsing to publishable reports.
-- Comparable baselines (k-mer and one-hot SVMs) alongside QSVM and VQC models.
-- Noise robustness sweeps plus cached ROC/PR data for probability-level diagnostics.
-- Advanced reporting notebook that now emits composite scorecards, calibration analyses, DOCX/PDF exports, and ready-to-drop visuals.
-- Reproducibility appendices capturing environment metadata, seeds, and dataset audits.
+## Table of Contents
+- [Overview](#overview)
+- [System Architecture](#system-architecture)
+- [Project Layout](#project-layout)
+- [Notebook Workflow](#notebook-workflow)
+- [Getting Started](#getting-started)
+- [Running the Pipeline](#running-the-pipeline)
+- [Automation & Batch Execution](#automation--batch-execution)
+- [Generated Artefacts](#generated-artefacts)
+- [Reproducibility & Quality](#reproducibility--quality)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
 
-## Environment setup
-1. Install a Conda implementation (Miniforge/Mambaforge recommended).
-2. Create the environment: `conda env create -f environment.yml`.
-3. Activate it: `conda activate qml-dna`.
-4. (Optional) Register the kernel: `python -m ipykernel install --user --name qml-dna`.
-5. Keep the environment in sync after dependency updates with `conda env update -f environment.yml --prune`.
+## Overview
+- End-to-end research workflow: parses raw GenBank data, engineers sequence features, trains classical and quantum classifiers, and assembles publication-ready reports.
+- Benchmarks k-mer and one-hot SVMs against quantum kernel methods and variational quantum circuits, including detailed noise sensitivity sweeps.
+- Notebook-driven design with cached intermediate artefacts so downstream stages can be recomputed independently or re-used across experiments.
+- Rich reporting outputs (DOCX/PDF, calibration diagnostics, radar plots) and reproducibility appendices for audit trails.
 
-The supplied `environment.yml` groups packages by purpose (core science, quantum backends, reporting, linting, testing) and installs a few pip-only helpers such as `papermill`, `notebook-as-pdf`, and `jupyterlab-git` for automation and collaboration.
+## System Architecture
+```mermaid
+flowchart LR
+  subgraph DataLayer[Data Layer]
+    Raw[Raw GenBank Sequences]
+  end
+  subgraph PrepLayer[Preparation]
+    Prep[01_data_preparation\nFeature engineering & splits]
+  end
+  subgraph ClassicalBranch[Classical Modelling]
+    Classical[02_classical_baselines\nK-mer & one-hot SVMs]
+  end
+  subgraph QuantumBranch[Quantum Modelling]
+    Kernel[03_quantum_kernel\nQuantum kernel + QSVM]
+    VQC[04_quantum_vqc\nVariational circuit classifier]
+  end
+  subgraph Evaluation[Evaluation & Analysis]
+    Noise[05_noise_robustness\nNoise sweeps]
+    Bench[06_benchmark_analysis\nMetric consolidation]
+  end
+  subgraph Reporting[Reporting & Delivery]
+    Report[07_reporting\nScorecards & exports]
+    Artefacts[Figures, tables, DOCX/PDF]
+  end
 
-## Workflow at a glance
-Run the notebooks in ascending order; each notebook saves outputs that the later stages consume.
+  Raw --> Prep
+  Prep --> Classical
+  Prep --> Kernel
+  Prep --> VQC
+  Classical --> Noise
+  Kernel --> Noise
+  VQC --> Noise
+  Noise --> Bench
+  Bench --> Report
+  Report --> Artefacts
+```
+
+**Key responsibilities**
+- **Preparation** builds feature matrices, train/validation/test splits, and metadata needed by all models.
+- **Classical branch** delivers competitive baselines using scikit-learn SVMs with hyperparameter searches.
+- **Quantum branch** explores QSVMs via cached Gram matrices and parameterised variational circuits optimised through PennyLane/Qiskit.
+- **Evaluation** aggregates metrics, calibration data, and probability outputs to compare classical vs quantum regimes under multiple noise models.
+- **Reporting** curates results into shareable scorecards, figures, and reproducibility bundles.
+
+## Project Layout
+```text
+qml-dna/
+|-- data/
+|   |-- raw/              # External GenBank inputs (not tracked)
+|   `-- processed/        # Engineered features, splits, cached matrices
+|-- results/
+|   |-- metrics/          # CSV metrics, scorecards, diagnostics
+|   |-- figures/          # ROC/PR curves, heatmaps, calibration plots
+|   |-- tables/           # LaTeX/CSV tables for reports
+|   |-- report/           # Final DOCX/PDF deliverables
+|   |-- logs/             # RunJournal JSON logs from sweeps
+|   `-- appendix/         # Environment manifests, provenance bundles
+|-- 01_data_preparation.ipynb
+|-- 02_classical_baselines.ipynb
+|-- 03_quantum_kernel.ipynb
+|-- 04_quantum_vqc.ipynb
+|-- 05_noise_robustness.ipynb
+|-- 06_benchmark_analysis.ipynb
+|-- 07_reporting.ipynb
+|-- environment.yml       # Conda environment with quantum + reporting stacks
+|-- requirements.txt      # Minimal pip requirements (optional alternative)
+|-- LICENSE
+`-- README.md
+```
+
+## Notebook Workflow
+Run the notebooks in order; each stage regenerates only the artefacts it owns, so you can rerun individual notebooks as needed.
 
 | Notebook | Purpose | Key outputs |
 | --- | --- | --- |
-| `01_data_preparation.ipynb` | Parse raw sequences, create features, emit splits/meta | `data/processed/`, `results/logs/` |
-| `02_classical_baselines.ipynb` | Train SVM (k-mer & one-hot), export metrics | `results/metrics/svm_*`, ROC caches |
-| `03_quantum_kernel.ipynb` | Build quantum kernels, persist Gram matrices | `results/kernels/`, QSVM metrics |
-| `04_quantum_vqc.ipynb` | Optimise VQC, save weights and performance | `results/vqc_weights.npy`, `results/metrics/vqc_metrics.csv` |
-| `05_noise_robustness.ipynb` | Sweep noise models for QSVM/VQC | `results/metrics/noise_sweep_*.csv`, heatmaps |
-| `06_benchmark_analysis.ipynb` | Consolidate metrics, align labels, prep caches | `results/metrics/combined.csv`, ROC/PR caches |
-| `07_reporting.ipynb` | Generate scorecards, calibration plots, DOCX/PDF report | `results/report/`, `results/figures/`, `results/tables/` |
-| `08_appendix_reproducibility.ipynb` | Freeze environment + provenance bundles | `results/appendix/`, `results/metadata/` |
+| `01_data_preparation.ipynb` | Parse raw sequences, compute k-mer/one-hot features, stratify splits, and capture dataset metadata. | `data/processed/`, `results/logs/` |
+| `02_classical_baselines.ipynb` | Train and evaluate SVM baselines with grid searches and calibration. | `results/metrics/svm_*`, ROC/PR caches |
+| `03_quantum_kernel.ipynb` | Build quantum feature maps, cache Gram matrices, and train QSVMs via PennyLane Lightning. | `results/kernels/`, `results/metrics/qsvm_*` |
+| `04_quantum_vqc.ipynb` | Optimise variational quantum circuits and export learned parameters plus evaluation metrics. | `results/vqc_weights.npy`, `results/metrics/vqc_metrics.csv` |
+| `05_noise_robustness.ipynb` | Sweep device noise models across classical vs quantum variants to assess robustness. | `results/metrics/noise_sweep_*.csv`, heatmaps |
+| `06_benchmark_analysis.ipynb` | Consolidate metrics, align labels, compute composite KPIs, and prep caches for reporting. | `results/metrics/combined.csv`, ROC/PR caches |
+| `07_reporting.ipynb` | Generate scorecards, calibration plots, summaries, and DOCX/PDF reports for stakeholders. | `results/report/`, `results/figures/`, `results/tables/` |
 
-Each notebook is idempotent with respect to its outputs—re-running a notebook just refreshes the artefacts it owns.
+## Getting Started
+1. Install a Conda distribution (Miniforge or Mambaforge recommended for cross-platform reliability).
+2. Create the project environment:
+   ```bash
+   conda env create -f environment.yml
+   ```
+3. Activate it and register the Jupyter kernel (optional but convenient):
+   ```bash
+   conda activate qml-dna
+   python -m ipykernel install --user --name qml-dna
+   ```
+4. Keep dependencies in sync after updates:
+   ```bash
+   conda env update -f environment.yml --prune
+   ```
+5. If you prefer pip-only installs, `pip install -r requirements.txt` covers the light-weight stack (quantum extras still require compatible system libraries).
 
-## What is new in the reporting notebook?
-`07_reporting.ipynb` now:
-- Builds a composite model scorecard that ranks models using a weighted blend of F1, ROC-AUC, PR-AUC, and balanced accuracy, including validation-vs-test drift.
-- Computes probability-level diagnostics (Brier score, log loss, expected calibration error) and emits calibration CSVs/plots for every model with cached probabilities.
-- Adds radar charts, calibration overlays, and scatter plots (calibration vs discrimination) to `results/figures/` and automatically rolls them into DOCX/PDF exports.
-- Generates `results/tables/scorecard.csv` and `probability_diagnostics.csv` for downstream tooling.
-- Feeds bullet-point takeaways, scorecard tables, and calibration summaries directly into the Word/PDF report templates.
+## Running the Pipeline
+- Launch JupyterLab or Notebook inside the activated environment and run each notebook sequentially (`Cell > Run All`).
+- To refresh results from a specific stage, delete its downstream artefacts (if needed) and rerun just that notebook; cached intermediate files ensure reproducibility.
+- For report regeneration:
+  ```bash
+  conda activate qml-dna
+  jupyter lab
+  # Open 07_reporting.ipynb and run all cells
+  ```
+  The report notebook emits `results/report/DNA_QML_Results_Report.docx` and `.pdf`, plus updated figure/table exports.
 
-To refresh the report after upstream runs:
-```
-conda activate qml-dna
-jupyter lab  # or jupyter notebook
-# open 07_reporting.ipynb and run all cells
-```
-The notebook writes the compiled report to `results/report/DNA_QML_Results_Report.{docx,pdf}` and previews core figures inline.
+## Automation & Batch Execution
+- Use `papermill` (installed via pip) for unattended runs, e.g. `papermill 07_reporting.ipynb 07_reporting.out.ipynb`.
+- Combine with task schedulers or CI to rebuild artefacts nightly; each notebook respects existing caches so repeated executions are cheap.
+- Parameterise `papermill` executions to swap datasets, feature configurations, or noise scenarios without editing the source notebooks.
 
-## Artefact directories
-- `data/raw/` original GenBank inputs (not versioned by default).
-- `data/processed/` feature matrices, labels, splits, stats.
-- `results/metrics/` CSV metrics, combined scorecards, probability diagnostics.
-- `results/figures/` ROC/PR curves, confusion matrices, noise heatmaps, calibration plots, radar/composite charts.
-- `results/tables/` LaTeX tables, CSV exports consumed by reports.
-- `results/logs/` RunJournal JSON logs collected during sweeps.
-- `results/report/` Final DOCX/PDF deliverables.
-- `results/appendix/` Environment manifests and reproducibility bundles.
+## Generated Artefacts
+- `data/raw/` contains untracked GenBank inputs; drop files here before running preparation.
+- `data/processed/` stores engineered feature matrices, labels, and split manifests.
+- `results/metrics/` captures per-model metrics, combined scorecards, noise sweep summaries, and probability diagnostics.
+- `results/figures/` holds ROC/PR curves, confusion matrices, calibration overlays, radar plots, and noise heatmaps ready for publication.
+- `results/tables/` provides CSV and LaTeX tables that flow directly into the reporting notebook.
+- `results/logs/` archives RunJournal JSON logs for debugging large sweeps.
+- `results/report/` contains the final DOCX/PDF deliverables and their supporting assets.
+- `results/appendix/` bundles environment manifests, dependency snapshots, and provenance data for compliance.
 
-## Reproducibility tips
-- Seed management lives in the modelling notebooks; reruns are deterministic when existing caches are removed.
-- Use `papermill` (installed via pip) for headless runs: `papermill 07_reporting.ipynb 07_reporting.out.ipynb`.
-- Capture the precise environment anytime via `conda env export --from-history > env.lock.yml`.
-- Run `pytest` to exercise any auxiliary scripts or utilities before regenerating artefacts.
+## Reproducibility & Quality
+- Deterministic seeds are set within the modelling notebooks; remove cached artefacts if you need a fully fresh run.
+- Export the active environment for archival with `conda env export --from-history > env.lock.yml`.
+- Run `pytest` to validate helper scripts before regenerating reports or running large sweeps.
+- Enable calibration diagnostics and probability audits via the reporting notebook to detect drift.
 
 ## Troubleshooting
-- Missing metrics/artefacts: rerun the prerequisite notebook; helpers such as `safe_load_csv` surface missing paths in 07.
-- Pennylane broadcast errors: the project now uses explicit entanglement loops compatible with current PennyLane releases.
-- Report generation issues: ensure `python-docx` and `reportlab` are present (they ship with the environment), and delete `results/report/` to regenerate fresh outputs if a document gets corrupted.
+- **Missing artefacts:** Rerun the prerequisite notebook; helper utilities surface missing paths in downstream stages.
+- **Quantum backend issues:** Ensure `pennylane-lightning` and `qiskit` match the versions in `environment.yml`; reinstall the environment if CUDA/OpenMP libraries have changed.
+- **Report export errors:** Confirm `python-docx` and `reportlab` are present, then remove `results/report/` before re-running `07_reporting.ipynb` to regenerate clean outputs.
+- **Large notebook runs:** Use `papermill` or Jupyter's `Run -> Select Below` to resume from checkpoints without reprocessing earlier cells.
 
-Happy experimenting!
+## License
+Distributed under the terms of the [MIT License](LICENSE).
