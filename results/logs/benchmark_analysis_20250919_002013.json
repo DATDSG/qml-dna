@@ -1,0 +1,110 @@
+[
+  {
+    "ts":"2025-09-19 00:08:26",
+    "step":"load",
+    "status":"ok",
+    "message":"Loaded encodings_all.npz and splits_pooled.json"
+  },
+  {
+    "ts":"2025-09-19 00:08:26",
+    "step":"splits",
+    "status":"ok",
+    "message":"train=12336, val=4112, test=4112, pos_rate=0.8654"
+  },
+  {
+    "ts":"2025-09-19 00:08:51",
+    "step":"svm_kmer",
+    "status":"ok",
+    "message":"Val-opt thr=0.40; test F1=0.954, AUC=0.802, PR-AUC=0.939 (elapsed=24.45s)"
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"svm_onehot",
+    "status":"ok",
+    "message":"Val-opt thr=0.30; test F1=0.954, AUC=0.842, PR-AUC=0.956 (elapsed=680.91s)"
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"qsvm_kernel",
+    "status":"ok",
+    "message":"Loaded Gram matrices: train=(300, 300), val=(4112, 300), test=(4112, 300) (elapsed=0.01s)"
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"qsvm_fit",
+    "status":"ok",
+    "message":"Val-opt thr=0.50; test F1=0.928, AUC=0.650, PR-AUC=0.907 (elapsed=0.16s)"
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"vqc_metrics",
+    "status":"ok",
+    "message":"Loaded stored VQC metrics from metrics\/vqc_metrics.csv"
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"vqc_probs",
+    "status":"warn",
+    "message":"No VQC probability cache detected; calibration for VQC will be skipped"
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"roc_cache",
+    "status":"ok",
+    "message":"Saved probs_svm_kmer.npy"
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"roc_cache",
+    "status":"ok",
+    "message":"Saved probs_svm_onehot.npy"
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"roc_cache",
+    "status":"ok",
+    "message":"Saved probs_qsvm_kernel.npy"
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"roc_cache",
+    "status":"warn",
+    "message":"Skip vqc: probabilities are None."
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"cm_cache",
+    "status":"ok",
+    "message":"Saved y_pred_svm_kmer.json (thr=0.400)"
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"cm_cache",
+    "status":"ok",
+    "message":"Saved y_pred_svm_onehot.json (thr=0.300)"
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"cm_cache",
+    "status":"ok",
+    "message":"Saved y_pred_qsvm_kernel.json (thr=0.500)"
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"cm_cache",
+    "status":"warn",
+    "message":"Skip y_pred_vqc: missing probs or threshold."
+  },
+  {
+    "ts":"2025-09-19 00:20:12",
+    "step":"reports",
+    "status":"warn",
+    "message":"Skip report for VQC: missing probs or threshold."
+  },
+  {
+    "ts":"2025-09-19 00:20:13",
+    "step":"summary",
+    "status":"ok",
+    "message":"Best test F1: SVM_onehot (0.954)"
+  }
+]

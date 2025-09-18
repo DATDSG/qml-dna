@@ -1,4 +1,0 @@
-Issues observed:
-- [kernel] Train truncated to 300 for speed.
-- [per-dataset] K_test_train rows (298) != len(te_idx) (4112). Will align by the smaller dimension.
-- [per-dataset] K_test_train rows (298) != len(te_idx) (4112). Proceeding with the aligned min size.

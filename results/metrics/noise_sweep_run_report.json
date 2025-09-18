@@ -19,25 +19,27 @@
     "VQC": {},
     "QSVM": {},
     "VQC_actual": {
-      "VQC_forward_256_0.0_0.0": "35.1 s",
+      "VQC_forward_256_0.0_0.0": "37.3 s",
       "VQC_metrics_256_0.0_0.0": "0.3 s",
       "VQC_forward_256_0.01_0.0": "9.3 min",
       "VQC_metrics_256_0.01_0.0": "0.3 s",
       "VQC_sweep_total_2": "9.9 min"
     },
     "QSVM_actual": {
+      "pure_states_and_gram": "9.2 s",
+      "pure_normalize": "0.0 s",
       "pure_svc_fit": "0.0 s",
       "pure_eval_train": "0.0 s",
       "pure_eval_val": "0.0 s",
       "pure_eval_test": "0.0 s",
-      "noisy_blocks_states": "4.8 min",
+      "noisy_blocks_states": "4.9 min",
       "noisy_normalize": "0.0 s",
       "noisy_features": "0.0 s",
       "noisy_linear_svc_fit": "0.0 s",
       "noisy_eval_train": "0.0 s",
       "noisy_eval_val": "0.0 s",
       "noisy_eval_test": "0.0 s",
-      "QSVM_sweep_total_2": "4.8 min"
+      "QSVM_sweep_total_2": "5.1 min"
     }
   }
 }

@@ -1,0 +1,62 @@
+[
+  {
+    "ts":"2025-09-18 10:44:53",
+    "step":"load",
+    "status":"ok",
+    "message":"Loaded encodings from encodings_all.npz and splits from splits_pooled.json"
+  },
+  {
+    "ts":"2025-09-18 10:44:53",
+    "step":"datasets",
+    "status":"ok",
+    "message":"Detected 13 dataset(s) with mapping."
+  },
+  {
+    "ts":"2025-09-18 10:44:53",
+    "step":"splits",
+    "status":"ok",
+    "message":"train=12336, val=4112, test=4112, pos_rate=0.8654"
+  },
+  {
+    "ts":"2025-09-18 10:44:53",
+    "step":"pca",
+    "status":"ok",
+    "message":"PCA D=6, explained_var=0.563"
+  },
+  {
+    "ts":"2025-09-18 10:44:53",
+    "step":"device",
+    "status":"ok",
+    "message":"lightning.qubit (wires=6, shots=None)"
+  },
+  {
+    "ts":"2025-09-18 11:09:30",
+    "step":"train",
+    "status":"ok",
+    "message":"Early stopping at epoch 11"
+  },
+  {
+    "ts":"2025-09-18 11:09:30",
+    "step":"train",
+    "status":"ok",
+    "message":"Finished in 24.6 min; best_val_bce=0.6292; epochs_logged=11"
+  },
+  {
+    "ts":"2025-09-18 11:10:30",
+    "step":"threshold",
+    "status":"ok",
+    "message":"VQC: thr=0.05 (val F1=0.922)"
+  },
+  {
+    "ts":"2025-09-18 11:10:31",
+    "step":"eval",
+    "status":"ok",
+    "message":"VQC: test F1=0.928, AUC=0.540, PR-AUC=0.880, thr=0.05"
+  },
+  {
+    "ts":"2025-09-18 11:10:31",
+    "step":"per-dataset",
+    "status":"ok",
+    "message":"Saved per-dataset test metrics for 13 dataset(s)."
+  }
+]

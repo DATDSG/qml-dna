@@ -1,21 +1,60 @@
-# Auto-generated from results/appendix/environment.json
-# Create with: conda env create -f environment.yml
-# Update with: conda env update -f environment.yml --prune
-
 name: qml-dna
 channels:
   - conda-forge
-  - defaults
-
-# Pin the base Python version captured
-variables: {}
 dependencies:
-  - python=3.10.13
+  # Base interpreter
+  - python=3.10
   - pip
+
+  # Core scientific stack
+  - numpy>=1.26
+  - pandas>=2.1
+  - scipy>=1.11
+  - scikit-learn>=1.4
+  - statsmodels>=0.14
+  - matplotlib>=3.8
+  - seaborn>=0.13
+  - plotly>=5.19
+  - kaleido>=0.2
+
+  # Quantum toolkits
+  - pennylane>=0.34
+  - pennylane-lightning>=0.34
+  - qiskit>=0.45
+
+  # Notebook & visualization ergonomics
+  - ipykernel
+  - ipython
+  - ipywidgets>=8.1
+  - jupyterlab>=4.0
+  - notebook
+  - nbformat>=5.9
+  - nbconvert>=7.10
+  - jupyterlab_code_formatter
+  - black>=24.3
+  - isort>=5.13
+  - ruff>=0.4
+
+  # Reporting & document generation
+  - python-docx>=0.8
+  - reportlab>=3.6
+  - openpyxl>=3.1
+  - tabulate>=0.9
+  - rich>=13.7
+
+  # Domain extras
+  - biopython>=1.83
+  - pillow>=10.0
+
+  # Utilities & testing
+  - tqdm>=4.66
+  - requests>=2.32
+  - pyyaml>=6.0
+  - pytest>=7.4
+  - pytest-cov>=4.1
+
   - pip:
-      - numpy==2.1.3
-      - pandas==2.3.1
-      - scikit-learn==1.7.1
-      - biopython==1.85
-      - matplotlib==3.10.0
-      - pennylane==0.42.1
+      - watermark>=2.4
+      - papermill>=2.5
+      - notebook-as-pdf>=0.5
+      - jupyterlab-git>=0.50

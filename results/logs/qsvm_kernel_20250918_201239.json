@@ -1,0 +1,86 @@
+[
+  {
+    "ts":"2025-09-18 16:02:19",
+    "step":"load",
+    "status":"ok",
+    "message":"Loaded encodings from encodings_all.npz and splits from splits_pooled.json"
+  },
+  {
+    "ts":"2025-09-18 16:02:20",
+    "step":"datasets",
+    "status":"ok",
+    "message":"Detected 13 dataset(s) with mapping."
+  },
+  {
+    "ts":"2025-09-18 16:02:20",
+    "step":"splits",
+    "status":"ok",
+    "message":"train=12336, val=4112, test=4112, pos_rate=0.8654"
+  },
+  {
+    "ts":"2025-09-18 16:02:20",
+    "step":"pca",
+    "status":"ok",
+    "message":"PCA to D=8 components (variance explained=0.614)"
+  },
+  {
+    "ts":"2025-09-18 16:02:20",
+    "step":"angles",
+    "status":"ok",
+    "message":"Angle embedding created; clipped values \u2014 train:345, val:148, test:144"
+  },
+  {
+    "ts":"2025-09-18 16:02:20",
+    "step":"device",
+    "status":"ok",
+    "message":"Using lightning.qubit (wires=8, shots=None)"
+  },
+  {
+    "ts":"2025-09-18 16:02:20",
+    "step":"device",
+    "status":"ok",
+    "message":"Using lightning.qubit (wires=8, shots=None)"
+  },
+  {
+    "ts":"2025-09-18 16:02:20",
+    "step":"kernel",
+    "status":"warn",
+    "message":"Train truncated to 300 for speed."
+  },
+  {
+    "ts":"2025-09-18 16:02:20",
+    "step":"kernel",
+    "status":"ok",
+    "message":"Nystr\u00f6m anchors M=128 (from 300); batch=64"
+  },
+  {
+    "ts":"2025-09-18 20:12:38",
+    "step":"kernel",
+    "status":"ok",
+    "message":"Computed Nystr\u00f6m blocks in 15018.1s"
+  },
+  {
+    "ts":"2025-09-18 20:12:38",
+    "step":"fit",
+    "status":"ok",
+    "message":"QSVM(Nystr\u00f6m): linear SVM on \u03a6_tr (shape=(300, 128)), C=5.0"
+  },
+  {
+    "ts":"2025-09-18 20:12:38",
+    "step":"threshold",
+    "status":"ok",
+    "message":"val-optimal thr=0.50 (F1=0.923)"
+  },
+  {
+    "ts":"2025-09-18 20:12:39",
+    "step":"eval",
+    "status":"ok",
+    "message":"QSVM(Nystr\u00f6m): metrics saved; see results\/metrics and results\/plots"
+  },
+  {
+    "ts":"2025-09-18 20:12:39",
+    "step":"kernel_cache",
+    "status":"ok",
+    "message":"Saved approximate Gram matrices (train=(300, 300), val=(4112, 300), test=(4112, 300))"
+  }
+]

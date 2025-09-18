@@ -1,0 +1,380 @@
+[
+  {
+    "ts":"2025-09-18 10:41:05",
+    "step":"fetch",
+    "dataset":"KF986530.1",
+    "status":"ok",
+    "message":"Downloaded KF986530.1.gb"
+  },
+  {
+    "ts":"2025-09-18 10:41:09",
+    "step":"fetch",
+    "dataset":"NC_023792",
+    "status":"ok",
+    "message":"Downloaded NC_023792.gb"
+  },
+  {
+    "ts":"2025-09-18 10:41:13",
+    "step":"fetch",
+    "dataset":"OK037100",
+    "status":"ok",
+    "message":"Downloaded OK037100.gb"
+  },
+  {
+    "ts":"2025-09-18 10:41:17",
+    "step":"fetch",
+    "dataset":"OK037101",
+    "status":"ok",
+    "message":"Downloaded OK037101.gb"
+  },
+  {
+    "ts":"2025-09-18 10:41:20",
+    "step":"fetch",
+    "dataset":"OK037102",
+    "status":"ok",
+    "message":"Downloaded OK037102.gb"
+  },
+  {
+    "ts":"2025-09-18 10:41:23",
+    "step":"fetch",
+    "dataset":"MT460410",
+    "status":"ok",
+    "message":"Downloaded MT460410.gb"
+  },
+  {
+    "ts":"2025-09-18 10:41:27",
+    "step":"fetch",
+    "dataset":"MG724915.1",
+    "status":"ok",
+    "message":"Downloaded MG724915.1.gb"
+  },
+  {
+    "ts":"2025-09-18 10:41:37",
+    "step":"fetch",
+    "dataset":"MG813875",
+    "status":"ok",
+    "message":"Downloaded MG813875.gb"
+  },
+  {
+    "ts":"2025-09-18 10:41:41",
+    "step":"fetch",
+    "dataset":"KY923074",
+    "status":"ok",
+    "message":"Downloaded KY923074.gb"
+  },
+  {
+    "ts":"2025-09-18 10:41:45",
+    "step":"fetch",
+    "dataset":"MF401522",
+    "status":"ok",
+    "message":"Downloaded MF401522.gb"
+  },
+  {
+    "ts":"2025-09-18 10:41:48",
+    "step":"fetch",
+    "dataset":"MH330687",
+    "status":"ok",
+    "message":"Downloaded MH330687.gb"
+  },
+  {
+    "ts":"2025-09-18 10:41:52",
+    "step":"fetch",
+    "dataset":"MK058684",
+    "status":"ok",
+    "message":"Downloaded MK058684.gb"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"fetch",
+    "dataset":"MH348156",
+    "status":"ok",
+    "message":"Downloaded MH348156.gb"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"parse",
+    "dataset":"KF986530.1",
+    "status":"ok",
+    "message":"Azadirachta indica | len=160,737 | features: {'CDS': 86, 'tRNA': 37, 'rRNA': 8} | ambiguous=0.0000"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"parse",
+    "dataset":"NC_023792",
+    "status":"ok",
+    "message":"Azadirachta indica | len=160,737 | features: {'CDS': 86, 'tRNA': 37, 'rRNA': 8} | ambiguous=0.0000"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"parse",
+    "dataset":"OK037100",
+    "status":"ok",
+    "message":"Azadirachta excelsa | len=160,361 | features: {'CDS': 86, 'tRNA': 37, 'rRNA': 8} | ambiguous=0.0000"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"parse",
+    "dataset":"OK037101",
+    "status":"ok",
+    "message":"Azadirachta indica var. siamensis | len=160,477 | features: {'CDS': 86, 'tRNA': 37, 'rRNA': 6} | ambiguous=0.0000"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"parse",
+    "dataset":"OK037102",
+    "status":"ok",
+    "message":"Azadirachta indica | len=160,876 | features: {'CDS': 85, 'tRNA': 37, 'rRNA': 8} | ambiguous=0.0000"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"parse",
+    "dataset":"MT460410",
+    "status":"ok",
+    "message":"Melia azedarach | len=160,393 | features: {'CDS': 87, 'tRNA': 37, 'rRNA': 8} | ambiguous=0.0000"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"parse",
+    "dataset":"MG724915.1",
+    "status":"ok",
+    "message":"Cedrela odorata | len=158,558 | features: {'CDS': 85, 'tRNA': 37, 'rRNA': 8} | ambiguous=0.0000"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"parse",
+    "dataset":"MG813875",
+    "status":"ok",
+    "message":"Toona ciliata | len=159,502 | features: {'CDS': 89, 'tRNA': 40, 'rRNA': 8} | ambiguous=0.0000"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"parse",
+    "dataset":"KY923074",
+    "status":"ok",
+    "message":"Entandrophragma cylindricum | len=159,609 | features: {'CDS': 85, 'tRNA': 37, 'rRNA': 8} | ambiguous=0.0000"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"parse",
+    "dataset":"MF401522",
+    "status":"ok",
+    "message":"Carapa guianensis | len=159,483 | features: {'CDS': 86, 'tRNA': 37, 'rRNA': 8} | ambiguous=0.0000"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"parse",
+    "dataset":"MH330687",
+    "status":"ok",
+    "message":"Xylocarpus rumphii | len=159,282 | features: {'CDS': 86, 'tRNA': 37, 'rRNA': 8} | ambiguous=0.0000"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"parse",
+    "dataset":"MK058684",
+    "status":"ok",
+    "message":"Khaya madagascariensis | len=160,843 | features: {'CDS': 88, 'tRNA': 39, 'rRNA': 8} | ambiguous=0.0000"
+  },
+  {
+    "ts":"2025-09-18 10:41:56",
+    "step":"parse",
+    "dataset":"MH348156",
+    "status":"ok",
+    "message":"Swietenia macrophylla | len=159,276 | features: {'CDS': 85, 'tRNA': 36, 'rRNA': 8} | ambiguous=0.0000"
+  },
+  {
+    "ts":"2025-09-18 10:41:57",
+    "step":"windows",
+    "dataset":"KF986530.1",
+    "status":"ok",
+    "message":"windows=1490 | CDS=1375 | RNA=115 | short_skipped=54 | ambiguous_chars=0"
+  },
+  {
+    "ts":"2025-09-18 10:41:57",
+    "step":"windows",
+    "dataset":"KY923074",
+    "status":"ok",
+    "message":"windows=1485 | CDS=1370 | RNA=115 | short_skipped=54 | ambiguous_chars=0"
+  },
+  {
+    "ts":"2025-09-18 10:41:57",
+    "step":"windows",
+    "dataset":"MF401522",
+    "status":"ok",
+    "message":"windows=1494 | CDS=1377 | RNA=117 | short_skipped=54 | ambiguous_chars=0"
+  },
+  {
+    "ts":"2025-09-18 10:41:57",
+    "step":"windows",
+    "dataset":"MG724915.1",
+    "status":"ok",
+    "message":"windows=1483 | CDS=1366 | RNA=117 | short_skipped=54 | ambiguous_chars=0"
+  },
+  {
+    "ts":"2025-09-18 10:41:57",
+    "step":"windows",
+    "dataset":"MG813875",
+    "status":"ok",
+    "message":"windows=1486 | CDS=1369 | RNA=117 | short_skipped=61 | ambiguous_chars=0"
+  },
+  {
+    "ts":"2025-09-18 10:41:57",
+    "step":"windows",
+    "dataset":"MH330687",
+    "status":"ok",
+    "message":"windows=1496 | CDS=1379 | RNA=117 | short_skipped=54 | ambiguous_chars=6"
+  },
+  {
+    "ts":"2025-09-18 10:41:57",
+    "step":"windows",
+    "dataset":"MH348156",
+    "status":"ok",
+    "message":"windows=1453 | CDS=1336 | RNA=117 | short_skipped=53 | ambiguous_chars=0"
+  },
+  {
+    "ts":"2025-09-18 10:41:57",
+    "step":"windows",
+    "dataset":"MK058684",
+    "status":"ok",
+    "message":"windows=1491 | CDS=1374 | RNA=117 | short_skipped=57 | ambiguous_chars=4"
+  },
+  {
+    "ts":"2025-09-18 10:41:57",
+    "step":"windows",
+    "dataset":"MT460410",
+    "status":"ok",
+    "message":"windows=2746 | CDS=1377 | RNA=1369 | short_skipped=55 | ambiguous_chars=0"
+  },
+  {
+    "ts":"2025-09-18 10:41:57",
+    "step":"windows",
+    "dataset":"NC_023792",
+    "status":"ok",
+    "message":"windows=1490 | CDS=1375 | RNA=115 | short_skipped=54 | ambiguous_chars=0"
+  },
+  {
+    "ts":"2025-09-18 10:41:57",
+    "step":"windows",
+    "dataset":"OK037100",
+    "status":"ok",
+    "message":"windows=1486 | CDS=1369 | RNA=117 | short_skipped=54 | ambiguous_chars=0"
+  },
+  {
+    "ts":"2025-09-18 10:41:57",
+    "step":"windows",
+    "dataset":"OK037101",
+    "status":"ok",
+    "message":"windows=1479 | CDS=1362 | RNA=117 | short_skipped=52 | ambiguous_chars=0"
+  },
+  {
+    "ts":"2025-09-18 10:41:57",
+    "step":"windows",
+    "dataset":"OK037102",
+    "status":"ok",
+    "message":"windows=1481 | CDS=1364 | RNA=117 | short_skipped=54 | ambiguous_chars=0"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"save",
+    "dataset":"all",
+    "status":"ok",
+    "message":"Saved encodings to encodings_all.npz with N=20560 samples across 13 datasets."
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"pooled",
+    "status":"ok",
+    "message":"train=12336, val=4112, test=4112"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"KF986530.1",
+    "status":"ok",
+    "message":"(per-dataset) train=894, val=298, test=298"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"KY923074",
+    "status":"ok",
+    "message":"(per-dataset) train=891, val=297, test=297"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"MF401522",
+    "status":"ok",
+    "message":"(per-dataset) train=896, val=299, test=299"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"MG724915.1",
+    "status":"ok",
+    "message":"(per-dataset) train=889, val=297, test=297"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"MG813875",
+    "status":"ok",
+    "message":"(per-dataset) train=891, val=297, test=298"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"MH330687",
+    "status":"ok",
+    "message":"(per-dataset) train=897, val=299, test=300"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"MH348156",
+    "status":"ok",
+    "message":"(per-dataset) train=871, val=291, test=291"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"MK058684",
+    "status":"ok",
+    "message":"(per-dataset) train=894, val=298, test=299"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"MT460410",
+    "status":"ok",
+    "message":"(per-dataset) train=1647, val=549, test=550"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"NC_023792",
+    "status":"ok",
+    "message":"(per-dataset) train=894, val=298, test=298"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"OK037100",
+    "status":"ok",
+    "message":"(per-dataset) train=891, val=297, test=298"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"OK037101",
+    "status":"ok",
+    "message":"(per-dataset) train=887, val=296, test=296"
+  },
+  {
+    "ts":"2025-09-18 10:42:02",
+    "step":"split",
+    "dataset":"OK037102",
+    "status":"ok",
+    "message":"(per-dataset) train=888, val=296, test=297"
+  }
+]

@@ -1,0 +1,5 @@
+Issues observed:
+- [vqc_probs] No VQC probability cache detected; calibration for VQC will be skipped
+- [roc_cache] Skip vqc: probabilities are None.
+- [cm_cache] Skip y_pred_vqc: missing probs or threshold.
+- [reports] Skip report for VQC: missing probs or threshold.

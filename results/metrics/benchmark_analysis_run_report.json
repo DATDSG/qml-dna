@@ -1,0 +1,11 @@
+{
+  "timing": {
+    "svm_kmer": 24.4546,
+    "svm_onehot": 680.9133,
+    "qsvm_kernel_load": 0.0059,
+    "qsvm_kernel_fit": 0.0063,
+    "qsvm_kernel_predict": 0.0229,
+    "qsvm_kernel_total": 0.1569
+  },
+  "generated_at": "2025-09-19 00:20:13"
+}

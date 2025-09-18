@@ -1,0 +1,2 @@
+Issues observed:
+- [kernel] Train truncated to 300 for speed.

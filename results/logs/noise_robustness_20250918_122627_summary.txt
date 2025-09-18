@@ -1,0 +1,2 @@
+Issues observed:
+- [kernel_cache] Pure kernels not in cache; will compute on demand.
