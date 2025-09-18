@@ -1,0 +1,9 @@
+Issues observed:
+- [qsvm_align] Aligned labels to kernel rows: val 4112->298, test 4112->298
+- [roc_cache] Skip qsvm_kernel: length mismatch probs=298 vs y_test=4112.
+- [roc_cache] Skip vqc: probabilities are None.
+- [cm_cache] Skip y_pred_qsvm_kernel: length mismatch 298 vs 4112.
+- [cm_cache] Skip y_pred_vqc: missing probs or threshold.
+- [reports] Skip report for QSVM_kernel: length mismatch 298 vs 4112.
+- [reports] Skip report for VQC: missing probs or threshold.
+- [align] Aligned test length to n=298 to match shortest prob array (labels=4112, probs=[4112, 4112, 298]).

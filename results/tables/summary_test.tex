@@ -1,11 +1,12 @@
-\begin{tabular}{lrrrrr}
+\begin{tabular}{lrrrrrrrrr}
 \toprule
- & Accuracy & Precision & Recall & F1 & ROC-AUC \\
-model &  &  &  &  &  \\
+ & Accuracy & Precision & Recall & F1 & ROC-AUC & PR-AUC & Specificity & Balanced-Acc & MCC \\
+model &  &  &  &  &  &  &  &  &  \\
 \midrule
-QSVM\_kernel & 0.923 & 0.923 & 1.000 & 0.960 & 0.788 \\
-VQC & 0.923 & 0.923 & 1.000 & 0.960 & 0.511 \\
-SVM\_onehot & 0.923 & 0.923 & 1.000 & 0.960 & 0.756 \\
-SVM\_kmer & 0.919 & 0.923 & 0.996 & 0.958 & 0.774 \\
+VQC & 0.923 & 0.923 & 1.000 & 0.960 & 0.511 & NaN & NaN & NaN & NaN \\
+SVM\_onehot & 0.923 & 0.923 & 1.000 & 0.960 & 0.756 & NaN & NaN & NaN & NaN \\
+SVM\_kmer & 0.919 & 0.923 & 0.996 & 0.958 & 0.774 & NaN & NaN & NaN & NaN \\
+QSVM\_kernel & 0.883 & 0.889 & 0.992 & 0.938 & NaN & 0.898 & 0.000 & 0.496 & -0.029 \\
+QSVM\_kernel\_nystrom & 0.866 & 0.866 & 0.999 & 0.928 & NaN & 0.907 & 0.007 & 0.503 & 0.047 \\
 \bottomrule
 \end{tabular}
