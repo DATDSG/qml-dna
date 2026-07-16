@@ -1,0 +1,34 @@
+name: Scheduled model + report rebuild
+
+on:
+  schedule:
+    - cron: "0 3 * * 0"  # weekly, Sunday 03:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install package + quantum extras
+        run: pip install -e ".[quantum]"
+
+      - name: Rebuild classical models
+        run: python scripts/build_classical_models.py
+
+      - name: Rebuild quantum models (VQC + kernel; the expensive stage)
+        run: python scripts/build_quantum_models.py
+
+      # Noise-robustness sweeps (05) and report assembly (07) still run as notebooks via
+      # papermill rather than through qmldna -- they weren't extracted into the package in
+      # this pass (see README "What's not yet extracted"). Wire those in here once ported.
+      - name: Upload rebuilt models as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: qmldna-models
+          path: models/

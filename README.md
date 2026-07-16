@@ -6,6 +6,46 @@
 
 A comprehensive hybrid quantum-classical research pipeline for supervised DNA sequence classification. This project combines reproducible feature engineering, strong classical machine learning baselines, and experimental quantum machine learning (QML) models to benchmark how quantum circuits compare to optimised support vector machines on genomics tasks.
 
+## Try It: Web App & API
+
+Beyond the research notebooks, this project now ships a `qmldna` Python package (`src/qmldna/`)
+extracted from the notebook logic, a FastAPI inference service (`api/`), and a Streamlit web UI
+(`web/`) — so classifying a new DNA sequence no longer requires opening Jupyter.
+
+```bash
+pip install -e ".[dev,quantum,api,web]"
+
+# Train and persist the models once (writes to ./models/, gitignored)
+python scripts/build_classical_models.py
+python scripts/build_quantum_models.py   # slower: trains VQC + quantum-kernel QSVM
+
+# Run the API and UI (two terminals), or use docker compose (see below)
+uvicorn api.main:app --reload
+streamlit run web/app.py
+```
+
+Or with Docker (no local Python environment needed):
+
+```bash
+docker compose run api python scripts/build_classical_models.py
+docker compose run api python scripts/build_quantum_models.py
+docker compose up
+# API:  http://localhost:8000/docs
+# Web:  http://localhost:8501
+```
+
+The web UI lets you paste any DNA sequence and get classical SVM, VQC, and quantum-kernel
+predictions side by side, browse an interactive benchmark dashboard, and download the generated
+report. See [`api/main.py`](api/main.py) for the endpoint list and cost characteristics of each
+model (classical/VQC are synchronous; the quantum kernel runs as a background job since it's
+~1.8s per window at default settings).
+
+**What's not yet extracted:** noise-robustness sweeps (`05_noise_robustness.ipynb`) and report
+assembly (`07_reporting.ipynb`) still run as notebooks — they're batch-only regardless (minutes
+to hours), so wrapping them in `qmldna` is a lower priority than the inference path was. The API's
+`/reports/latest` endpoint serves whatever `results/report/` already contains rather than
+regenerating it on demand.
+
 ## Table of Contents
 
 - [Overview](#overview)

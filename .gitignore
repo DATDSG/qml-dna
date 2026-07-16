@@ -142,6 +142,9 @@ env/
 venv/
 ENV/
 env.bak/
+
+# Trained model artifacts (rebuild via scripts/build_*_models.py)
+/models/
 venv.bak/
 
 # Spyder project settings
